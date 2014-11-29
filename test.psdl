@@ -1,0 +1,47 @@
+model test
+
+shape triangle1 is
+	triangle (0,0) (0,-75) (150, 0)
+end
+
+shape triangle2 is
+	triangle (0,0) (0,-100) (-150, 0)
+end
+
+object slider1 is
+	shape = triangle1
+	friction = 0.3
+end
+
+object slider2 is
+	shape = triangle2
+	friction = 0.5
+end
+
+shape ball_shape1 is
+	circle at (0,0) radius 20
+end
+
+shape ball_shape2 is
+	circle at (0,0) radius 15
+end
+
+object ball1 is
+	shape = ball_shape1
+	elasticity = 0.2
+end 
+
+object ball2 is
+	shape = ball_shape2
+	elasticity = 0.3
+end
+
+world is
+	width = 300
+	height = 300
+	gravity = 10
+	objects = {
+		slider1 at (0,300), slider2 at (300,300),
+		ball1 at (280, 180), ball2 at (10,10)
+	}
+end
